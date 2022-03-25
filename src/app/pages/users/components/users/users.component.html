@@ -1,1 +1,11 @@
-<p>users works!</p>
+
+<ul [@listStagger]="users$">
+  <li *ngFor="let user of users$">
+    <a routerLink="/user-detail/{{ user.id }}" routerLinkActive="activated" [routerLinkActiveOptions]="{exact:true}">{{ user.name }}</a>
+
+    <ul>
+      <li>{{ user.email }}</li>
+      <li><a href="http://{{ user.website }}">{{ user.website }}</a></li>
+    </ul>
+  </li>
+</ul>
